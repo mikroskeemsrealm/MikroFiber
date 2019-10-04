@@ -1,0 +1,28 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Mark Vainomaa <mikroskeem@mikroskeem.eu>
+Date: Fri, 4 Oct 2019 09:31:28 +0300
+Subject: [PATCH] Disable server reloading
+
+
+diff --git a/src/main/java/org/bukkit/command/defaults/ReloadCommand.java b/src/main/java/org/bukkit/command/defaults/ReloadCommand.java
+index af8ab73fe00a00a8f73fe38cd0d58eab7f47abe3..a5513b084897cdc4b12e1b388a7cc8d9135bac51 100644
+--- a/src/main/java/org/bukkit/command/defaults/ReloadCommand.java
++++ b/src/main/java/org/bukkit/command/defaults/ReloadCommand.java
+@@ -43,6 +43,7 @@ public class ReloadCommand extends BukkitCommand {
+                 return true;
+             }
+         }
++        /* // MikroFiber start - disable server reloading
+         if (!confirmed) {
+             Command.broadcastCommandMessage(sender, ChatColor.RED + "Are you sure you wish to reload your server? Doing so may cause bugs and memory leaks. It is recommended to restart instead of using /reload. To confirm, please type " + ChatColor.YELLOW + "/reload confirm");
+             return true;
+@@ -53,6 +54,9 @@ public class ReloadCommand extends BukkitCommand {
+         Command.broadcastCommandMessage(sender, ChatColor.RED + "If you encounter any issues please use the /stop command to restart your server.");
+         Bukkit.reload();
+         Command.broadcastCommandMessage(sender, ChatColor.GREEN + "Reload complete.");
++        */
++        Command.broadcastCommandMessage(sender, ChatColor.RED + "Server reloading functionality is removed");
++        // MikroCord end
+ 
+         return true;
+     }
