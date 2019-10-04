@@ -1,0 +1,19 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Mark Vainomaa <mikroskeem@mikroskeem.eu>
+Date: Fri, 4 Oct 2019 11:28:38 +0300
+Subject: [PATCH] Switch back to JNA Jline terminal implementation
+
+
+diff --git a/pom.xml b/pom.xml
+index 5b34dcd030728a9e42f9d42ee1c471252675ca04..067b36500ebf2863567fafd443901d0a04dde344 100644
+--- a/pom.xml
++++ b/pom.xml
+@@ -47,7 +47,7 @@
+         </dependency>
+         <dependency>
+             <groupId>org.jline</groupId>
+-            <artifactId>jline-terminal-jansi</artifactId>
++            <artifactId>jline-terminal-jna</artifactId> <!-- MikroFiber - Use JNA instead of Jansi -->
+             <version>3.12.1</version>
+             <scope>runtime</scope>
+         </dependency>
