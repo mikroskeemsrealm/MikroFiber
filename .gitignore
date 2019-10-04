@@ -1,0 +1,23 @@
+MikroFiber-API/
+MikroFiber-Server/
+mc-dev/
+
+# IntelliJ IDEA
+*.iml
+*.ipr
+*.iws
+.idea/
+out/
+
+# Eclipse
+.project
+.classpath
+.settings
+
+# Vim
+*~
+*.swp
+
+# Emacs
+\#*\#
+.\#*

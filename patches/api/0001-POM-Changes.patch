@@ -1,0 +1,35 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Mark Vainomaa <mikroskeem@mikroskeem.eu>
+Date: Fri, 4 Oct 2019 08:31:46 +0300
+Subject: [PATCH] POM Changes
+
+
+diff --git a/pom.xml b/pom.xml
+index 5088c3315e13eefa598d95c2c635e7ece58d02de..de34352c5c73e9f9b3c2a3aed55d5065a67de56a 100644
+--- a/pom.xml
++++ b/pom.xml
+@@ -3,18 +3,18 @@
+          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+     <modelVersion>4.0.0</modelVersion>
+     <parent>
+-        <groupId>com.destroystokyo.paper</groupId>
+-        <artifactId>paper-parent</artifactId>
++        <groupId>eu.mikroskeem.mikrofiber</groupId>
++        <artifactId>mikrofiber-parent</artifactId>
+         <version>dev-SNAPSHOT</version>
+     </parent>
+ 
+-    <groupId>com.destroystokyo.paper</groupId>
+-    <artifactId>paper-api</artifactId>
++    <groupId>eu.mikroskeem.mikrofiber</groupId>
++    <artifactId>mikrofiber-api</artifactId>
+     <version>1.14.4-R0.1-SNAPSHOT</version>
+     <packaging>jar</packaging>
+ 
+-    <name>Paper-API</name>
+-    <url>https://github.com/PaperMC/Paper</url>
++    <name>MikroFiber-API</name>
++    <url>https://github.com/mikroskeemsrealm/MikroFiber</url>
+     <description>An enhanced plugin API for Minecraft servers.</description>
+ 
+     <properties>

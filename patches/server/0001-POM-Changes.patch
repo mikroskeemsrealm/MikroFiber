@@ -1,0 +1,46 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Mark Vainomaa <mikroskeem@mikroskeem.eu>
+Date: Fri, 4 Oct 2019 08:35:48 +0300
+Subject: [PATCH] POM Changes
+
+
+diff --git a/pom.xml b/pom.xml
+index beda5dc8a278467d677ef2c61f720fdddbde5b89..5b34dcd030728a9e42f9d42ee1c471252675ca04 100644
+--- a/pom.xml
++++ b/pom.xml
+@@ -1,11 +1,11 @@
+ <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+     <modelVersion>4.0.0</modelVersion>
+-    <artifactId>paper</artifactId>
++    <artifactId>mikrofiber-server</artifactId>
+     <packaging>jar</packaging>
+     <version>1.14.4-R0.1-SNAPSHOT</version>
+-    <name>Paper</name>
+-    <url>https://papermc.io</url>
++    <name>MikroFiber</name>
++    <url>https://github.com/mikroskeemsrealm/MikroFiber</url>
+ 
+     <properties>
+         <!-- <skipTests>true</skipTests> Paper - This [was] not going to end well -->
+@@ -21,16 +21,16 @@
+     </properties>
+ 
+     <parent>
+-        <groupId>com.destroystokyo.paper</groupId>
+-        <artifactId>paper-parent</artifactId>
++        <groupId>eu.mikroskeem.mikrofiber</groupId>
++        <artifactId>mikrofiber-parent</artifactId>
+         <version>dev-SNAPSHOT</version>
+         <relativePath>../pom.xml</relativePath>
+     </parent>
+ 
+     <dependencies>
+         <dependency>
+-            <groupId>com.destroystokyo.paper</groupId>
+-            <artifactId>paper-api</artifactId>
++            <groupId>eu.mikroskeem.mikrofiber</groupId>
++            <artifactId>mikrofiber-api</artifactId>
+             <version>${project.version}</version>
+             <scope>compile</scope>
+         </dependency>

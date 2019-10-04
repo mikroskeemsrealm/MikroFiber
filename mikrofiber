@@ -1,0 +1,80 @@
+#!/usr/bin/env bash
+
+# get base dir regardless of execution location
+SOURCE="${BASH_SOURCE[0]}"
+while [ -h "${SOURCE}"} ]; do # resolve $SOURCE until the file is no longer a symlink
+    DIR="$(cd -P "$(dirname "${SOURCE}")" && pwd)"
+    SOURCE="$(readlink "${SOURCE}")"
+    [[ "${SOURCE}" != /* ]] && SOURCE="${DIR}/${SOURCE}" # if $SOURCE was a relative symlink, we need to resolve it relative to the path where the symlink file was located
+done
+SOURCE="$([[ "${SOURCE}" = /* ]] && echo "${SOURCE}" || echo "${PWD}/${SOURCE#./}")"
+basedir="$(dirname "${SOURCE}")"
+. "${basedir}/scripts/init.sh"
+
+case "${1}" in
+	"rb" | "rbp" | "rebuild")
+        (
+            set -e
+            basedir
+            scripts/rebuildpatches.sh "${basedir}"
+        )
+        ;;
+	"p" | "patch" | "apply")
+        (
+            set -e
+            basedir
+            scripts/apply.sh "${basedir}"
+        )
+	;;
+	"b" | "bu" | "build")
+        (
+            basedir
+            mvn -N install
+
+            # Build API
+            pushd "${FORK_NAME}-API" 1>/dev/null
+            mvn clean install
+            popd 1>/dev/null
+
+            # Build server
+            pushd "${FORK_NAME}-Server" 1>/dev/null
+            mvn clean install
+            popd 1>/dev/null
+        )
+	    ;;
+	"d" | "de" | "deploy")
+        (
+            basedir
+            mvn -N install
+
+            # Build and deploy API
+            pushd "${FORK_NAME}-API" 1>/dev/null
+            mvn clean deploy
+            popd 1>/dev/null
+
+            # Build server
+            pushd "${FORK_NAME}-Server" 1>/dev/null
+            mvn clean install
+            popd 1>/dev/null
+	    )
+	;;
+	"up" | "upstream")
+	(
+		basedir
+		scripts/upstream.sh "${2}"
+	)
+	;;
+	*)
+		echo "${FORK_NAME} build tool command. This provides a variety of commands to build and manage the ${FORK_NAME} build"
+		echo "environment."
+		echo ""
+		echo " Usage:"
+		echo "  * rb, rebuild  | Rebuild patches, can be called from anywhere."
+		echo "  * p, patch     | Apply all patches to top of Paper without building it. Can be run from anywhere."
+		echo "  * up, upstream | Build Paper upstream, pass arg up to update paper. Can be run from anywhere."
+		echo "  * b, build    | Build API and Server but no deploy. Can be ran anywhere."
+	;;
+esac
+
+unset -f paperstash
+unset -f paperunstash

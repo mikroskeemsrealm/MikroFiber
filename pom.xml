@@ -1,0 +1,22 @@
+<project>
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>eu.mikroskeem.mikrofiber</groupId>
+    <artifactId>mikrofiber-parent</artifactId>
+    <version>dev-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <name>MikroFiber (Parent)</name>
+
+    <properties>
+        <skipTests>true</skipTests>
+    </properties>
+
+    <build>
+        <defaultGoal>install</defaultGoal>
+        <finalName>${project.artifactId}</finalName>
+    </build>
+    <modules>
+        <module>MikroFiber-API</module>
+        <module>MikroFiber-Server</module>
+    </modules>
+</project>
