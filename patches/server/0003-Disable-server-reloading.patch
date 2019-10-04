@@ -5,7 +5,7 @@ Subject: [PATCH] Disable server reloading
 
 
 diff --git a/src/main/java/org/bukkit/craftbukkit/CraftServer.java b/src/main/java/org/bukkit/craftbukkit/CraftServer.java
-index 7a8ab7d4017368335bba64c829c166ebec1ca846..952517cb896b1fc0c079f66dd965fd2a733d81cc 100644
+index 51a25d1ff6dbd1b630c7f1df0a5fc970098f8f0c..85a145f5e926206cddeda85d1c388c2efff7d1d3 100644
 --- a/src/main/java/org/bukkit/craftbukkit/CraftServer.java
 +++ b/src/main/java/org/bukkit/craftbukkit/CraftServer.java
 @@ -757,6 +757,7 @@ public final class CraftServer implements Server {
